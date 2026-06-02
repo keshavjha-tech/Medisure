@@ -1,0 +1,105 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  /* Mathematically Precise MediSure Palette */
+  --color-trust-indigo: oklch(39.21% 0.0964 245.82);
+  --color-vital-mint: oklch(63.29% 0.1347 163.45);
+  --color-digital-peach: oklch(71.21% 0.1585 44.25);
+  --color-slate-depth: oklch(26.15% 0.0247 248.16);
+  --color-cloud-white: oklch(98.54% 0.0042 240.24);
+  --color-azure-calm: oklch(94.67% 0.0222 245.33);
+
+  /* S-Tier Typography System */
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui;
+  --font-heading: var(--font-jakarta), var(--font-inter);
+
+  /* Standard functional variables mapping */
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+
+  --radius-lg: 0.75rem; /* Friendly medical rounding */
+  --radius-md: calc(0.75rem * 0.8);
+  --radius-sm: calc(0.75rem * 0.6);
+}
+
+:root {
+  /* Perceptually precise background & text */
+  --background: oklch(98.54% 0.0042 240.24);
+  --foreground: oklch(26.15% 0.0247 248.16);
+  
+  --primary: oklch(39.21% 0.0964 245.82);
+  --primary-foreground: oklch(98.54% 0.0042 240.24);
+  
+  --secondary: oklch(94.67% 0.0222 245.33);
+  --secondary-foreground: oklch(39.21% 0.0964 245.82);
+  
+  --accent: oklch(63.29% 0.1347 163.45);
+  --accent-foreground: oklch(100% 0 0);
+
+  --muted: oklch(92% 0.01 240);
+  --muted-foreground: oklch(50% 0.02 240);
+  
+  --card: oklch(100% 0 0);
+  --card-foreground: oklch(26.15% 0.0247 248.16);
+
+  --border: oklch(90% 0.01 240);
+  --input: oklch(90% 0.01 240);
+  --ring: oklch(39.21% 0.0964 245.82 / 50%);
+}
+
+.dark {
+  --background: oklch(18% 0.02 248);
+  --foreground: oklch(98% 0.01 248);
+  --card: oklch(20% 0.02 248);
+  --primary: oklch(55% 0.1 250); /* Brightened for dark accessibility */
+  --primary-foreground: oklch(18% 0.02 248);
+  --border: oklch(30% 0.02 248);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  /* Typography Logic */
+  h1, h2, h3, h4 {
+    @apply font-heading font-bold tracking-tight;
+  }
+  body {
+    @apply font-sans bg-background text-foreground antialiased;
+  }
+
+ @layer utilities {
+  /* Elegant Custom Scrollbar */
+  .custom-scrollbar::-webkit-scrollbar {
+    height: 6px; /* Super thin and modern */
+  }
+  
+  .custom-scrollbar::-webkit-scrollbar-track {
+    background: transparent; /* Invisible track so it doesn't look bulky */
+    border-radius: 10px;
+  }
+  
+  .custom-scrollbar::-webkit-scrollbar-thumb {
+    background: var(--color-trust-indigo);
+    opacity: 0.2; /* Light indigo by default */
+    border-radius: 10px;
+  }
+  
+  .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+    background: var(--color-vital-mint); /* Turns mint when they grab it! */
+  }
+}
+}
