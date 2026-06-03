@@ -13,12 +13,13 @@ app.use(helmet({
 }))
 app.use(cors({
     credentials: true,
-    origin: process.env.FRONTEND_URL
+    origin: process.env.FRONTEND_URL || 'http://localhost:3000'
 }))
 app.use(morgan('dev'))
-app.use(express.json())
+app.use(express.json({ limit: '16kb' }))
+app.use(express.urlencoded({ extended: true, limit: '16kb' }))
 app.use(cookieParser())
-console.log("Allowed CORS Origin:", process.env.FRONTEND_URL);
+console.log("Allowed CORS Origin:", process.env.FRONTEND_URL || 'http://localhost:3000');
 
 app.use(errorHandler)
 export { app }

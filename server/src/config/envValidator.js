@@ -7,4 +7,5 @@ export const validateEnv = () => {
             process.exit(1); // Fail fast
         }
     });
+    console.log('Environment variables validated successfully.');
 };
